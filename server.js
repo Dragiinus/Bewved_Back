@@ -38,4 +38,3 @@ DB.authenticate()
         })
     })
     .catch(err => console.log("Database Error", err))
-
