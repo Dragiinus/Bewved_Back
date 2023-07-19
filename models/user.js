@@ -4,9 +4,9 @@
 const { DataTypes } = require("sequelize")
 const DB = require("../db.config")
 
-/************************************/
+/*********************************/
 /*** Definition du modele user ***/
-/************************************/
+/*********************************/
 const User = DB.define("User", {
     id: {
         type: DataTypes.INTEGER(10),
