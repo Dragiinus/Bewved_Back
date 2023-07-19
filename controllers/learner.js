@@ -64,7 +64,7 @@ exports.updateLearner = (req, res) => {
             }
 
             Learner.update(req.body, { where: {id: learnerId}})
-                .then(learner => res.json({ message: 'Learner updated'}))
+                .then(learner => res.json({ message: 'Learner updated', data: learner}))
                 .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
         })
         .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
