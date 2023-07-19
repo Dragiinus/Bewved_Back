@@ -3,7 +3,6 @@
 /**************************************/
 const express = require("express");
 const cors = require('cors')
-const api = "/api/v0/"
 
 /********************************************/
 /*** Import de la connexion à la database ***/
@@ -21,97 +20,9 @@ app.use(express.urlencoded({ extended: true}))
 
 
 /********************************/
-/***   API ENTITIES ROUTES    ***/
+/*** Mise en place du routage ***/
 /********************************/
-
-// CLASSES
-/**
- * GET ALL classes
- */
-app.get( api + 'class', async (req, res) => {
-    try {
-        return res.send(`ALL CLASSES`);
-    } catch (e) {
-        return res.status(400).json({ message: e.message });
-    }
-});
-/**
- * GET Class BY id
- */
-app.get( api + 'class/:id', async (req, res) => {
-    try {
-        return res.send(`CLASS number : ` + req.params.id);
-    } catch (e) {
-        return res.status(400).json({ message: e.message });
-    }
-});
-
-// LEARNER
-/**
- * GET learner BY id
- */
-app.get( api + 'learner/:id', async (req, res) => {
-    try {
-        return res.send(`LEARNER number : ` + req.params.id);
-    } catch (e) {
-        return res.status(400).json({ message: e.message });
-    }
-});
-
-/**
- * POST learner
- */
-app.post( api + 'learner/', async (req, res) => {
-    try {
-        const learner = req.body.learner;
-        if (learner) { // todo : add service
-            const newLearner = learner;
-            return res.status(201).json({ learner: newLearner });
-        } else {
-            return res.status(400).json({ message: 'Bad parameters.' });
-        }
-    } catch (e) {
-        return res.status(400).json({ message: e.message });
-    }
-});
-
-/**
- * PUT learner
- */
-app.put( api + 'learner/:id', async (req, res) => {
-    try {
-        const { learner } = req.body;
-        const newLearner = learner;
-        if (newLearner) { // todo : add service
-            return res.json({ newLearner });
-        } else {
-            return res.status(404).json({ message: 'Learner not found.' });
-        }
-    } catch (e) {
-        return res.status(400).json({ message: e.message });
-    }
-});
-
-/**
- * DELETE learner
- */
-app.delete( api + 'learner/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        if ( await LearnerService.delete(id) ) { // todo : add service
-            return res.sendStatus(204);
-        } else {
-            return res.status(404).json({ message: 'learner not found.' });
-        }
-    } catch (e) {
-        return res.status(400).json({ message: e.message });
-    }
-});
-
-/********************************/
-/***    API GENERAL ROUTES    ***/
-/********************************/
-app.get( api, (req, res) => res.send(`I'm online, well done !`))
+app.get("/", (req, res) => res.send(`I'm online, well done !`))
 
 app.get("*", (req, res) => res.status(501).send(`This ressource doesn't exist`))
 
