@@ -1,7 +1,8 @@
 /**************************************/
 /*** Import des modules necessaires ***/
 /**************************************/
-const Session = require('../models/session')
+const DB = require('../db.config')
+const Session = DB.Session
 
 /***************************************/
 /*** Routage de la ressource Session ***/

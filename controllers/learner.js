@@ -1,7 +1,8 @@
 /**************************************/
 /*** Import des modules necessaires ***/
 /**************************************/
-const Learner = require('../models/learner')
+const DB = require('../db.config')
+const Learner = DB.Learner
 
 /***************************************/
 /*** Routage de la ressource Learner ***/
@@ -19,7 +20,7 @@ exports.getLearner = (req, res) => {
         return res.json(400).json({ message: 'Missing parameter'})
     }
 
-    Learner.findOne({ where: {id: learnerId}, raw: true})
+    Learner.findOne({ where: {id: learnerId},include: Session, raw: true,})
         .then(learner =>  {
             if((learner === null)){
                 return res.status(404).json({ message: 'This learner does not exist !'})

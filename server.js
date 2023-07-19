@@ -128,7 +128,7 @@ app.get("*", (req, res) => res.status(501).send(`This ressource doesn't exist`))
 /***************************************/
 /*** Start server avec test database ***/
 /***************************************/
-DB.authenticate()
+DB.sequelize.authenticate()
     .then(() => console.log("Database connection OK"))
     .then(() => {
         app.listen(process.env.SERVER_PORT, () => {
