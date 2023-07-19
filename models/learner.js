@@ -8,7 +8,7 @@ const DB = require("../db.config")
 /*** Definition du modele Learner ***/
 /************************************/
 const Learner = DB.define("Learner", {
-    id: {
+    idLearner: {
         type: DataTypes.INTEGER(10),
         primaryKey: true,
         autoIncrement: true
@@ -33,6 +33,6 @@ const Learner = DB.define("Learner", {
         defaultValue: '',
         allowNull: true,
     },
-}, { paranoid: true})           // Permet de softDelete
+}, {timestamps: false, paranoid: false, freezeTableName: true})           // Permet de softDelete
 
 module.exports = Learner
