@@ -15,8 +15,4 @@ let sequelize = new Sequelize(
     }
 )
 
-/***********************************/
-/*** Synchronisation des modèles ***/
-/***********************************/
-
 module.exports = sequelize

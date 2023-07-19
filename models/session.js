@@ -4,13 +4,13 @@
 const { DataTypes } = require("sequelize")
 const DB = require("../db.config")
 
-/**********************************/
-/*** Definition du modele class ***/
-/**********************************/
-const Class = DB.define("Class", {
+/************************************/
+/*** Definition du modele session ***/
+/************************************/
+const Session = DB.define("Session", {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     nameClass:{
@@ -30,4 +30,4 @@ const Class = DB.define("Class", {
     },
 }, { paranoid: true})           // Permet de softDelete
 
-module.exports = Class
+module.exports = Session

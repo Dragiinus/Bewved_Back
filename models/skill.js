@@ -10,7 +10,7 @@ const DB = require("../db.config")
 const SkillName = DB.define("SkillName", {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     skillName:{

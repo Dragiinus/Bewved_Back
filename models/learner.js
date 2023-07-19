@@ -10,28 +10,28 @@ const DB = require("../db.config")
 const Learner = DB.define("Learner", {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     firstNameLearner:{
         type: DataTypes.STRING(100),
         defaultValue: '',
-        allowNull: false,
+        allowNull: true,
     },
     lastNameLearner:{
         type: DataTypes.STRING(100),
         defaultValue: '',
-        allowNull: false,
+        allowNull: true,
     },
     genderLearner:{
         type: DataTypes.TINYINT(1),
         defaultValue: '',
-        allowNull: false,
+        allowNull: true,
     },
     ageLearner:{
         type: DataTypes.TINYINT(1),
         defaultValue: '',
-        allowNull: false,
+        allowNull: true,
     },
 }, { paranoid: true})           // Permet de softDelete
 
