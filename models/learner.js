@@ -3,6 +3,7 @@
 /**************************************/
 const { DataTypes } = require("sequelize")
 
+
 /************************************/
 /*** Definition du modele Learner ***/
 /************************************/
@@ -29,7 +30,7 @@ module.exports = (sequelize) => {
             allowNull: true,
         },
         ageLearner:{
-            type: DataTypes.TINYINT(1),
+            type: DataTypes.INTEGER(10),
             defaultValue: '',
             allowNull: true,
         },

@@ -3,6 +3,7 @@
 /**************************************/
 const { DataTypes } = require("sequelize")
 
+
 /************************************/
 /*** Definition du modele session ***/
 /************************************/
@@ -19,12 +20,12 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         minClass:{
-            type: DataTypes.TINYINT(1),
+            type: DataTypes.INTEGER(10),
             defaultValue: '',
             allowNull: false,
         },
         maxClass:{
-            type: DataTypes.TINYINT(1),
+            type: DataTypes.INTEGER(10),
             defaultValue: '',
             allowNull: false,
         },
