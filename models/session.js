@@ -8,7 +8,7 @@ const { DataTypes } = require("sequelize")
 /*** Definition du modele session ***/
 /************************************/
 module.exports = (sequelize) => {
-    return Session = sequelize.define("Session", {
+    return Session = sequelize.define("session", {
         idsession: {
             type: DataTypes.INTEGER(10),
             primaryKey: true,

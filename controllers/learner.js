@@ -32,7 +32,7 @@ exports.getLearner = (req, res) => {
 }
 
 exports.addLearner = (req, res) => {
-    const {firstNameLearner, lastNameLearner, genderLearner, ageLearner} = req.body
+    const {firstNameLearner, lastNameLearner, genderLearner, ageLearner, idsession} = req.body
 
     if(!firstNameLearner || !lastNameLearner || !genderLearner || !ageLearner){
         return res.status(400).json({ message: 'Missing Data'})
@@ -46,7 +46,7 @@ exports.addLearner = (req, res) => {
 
             Learner.create(req.body)
                 .then(learner => res.json({ message: 'Learner Added', data:learner}))
-                .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
+                .catch(err => res.status(500).json({ message: 'Database Error on Create', error: err}))
         })
         .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
 }
