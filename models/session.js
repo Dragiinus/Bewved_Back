@@ -5,34 +5,29 @@ const { DataTypes } = require("sequelize")
 
 
 /************************************/
-/*** Definition du modele Learner ***/
+/*** Definition du modele session ***/
 /************************************/
 module.exports = (sequelize) => {
-    return Learner = sequelize.define("Learner", {
-        idLearner: {
+    return Session = sequelize.define("Session", {
+        idsession: {
             type: DataTypes.INTEGER(10),
             primaryKey: true,
             autoIncrement: true
         },
-        firstNameLearner:{
+        nameClass:{
             type: DataTypes.STRING(100),
             defaultValue: '',
-            allowNull: true,
+            allowNull: false,
         },
-        lastNameLearner:{
-            type: DataTypes.STRING(100),
-            defaultValue: '',
-            allowNull: true,
-        },
-        genderLearner:{
-            type: DataTypes.TINYINT(1),
-            defaultValue: '',
-            allowNull: true,
-        },
-        ageLearner:{
+        minClass:{
             type: DataTypes.INTEGER(10),
             defaultValue: '',
-            allowNull: true,
+            allowNull: false,
+        },
+        maxClass:{
+            type: DataTypes.INTEGER(10),
+            defaultValue: '',
+            allowNull: false,
         },
     }, {timestamps: false, paranoid: false, freezeTableName: true})           // Permet de softDelete
 }

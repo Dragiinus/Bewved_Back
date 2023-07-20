@@ -14,9 +14,18 @@ let sequelize = new Sequelize(
         logging: false
     }
 )
-
 /***********************************/
-/*** Synchronisation des modèles ***/
+/*** Mise en place des relations ***/
 /***********************************/
+const db = {}
 
-module.exports = sequelize
+db.sequelize = sequelize
+db.Learner = require('./models/learner')(sequelize)
+db.Session = require('./models/session')(sequelize)
+
+db.Session.hasMany(db.Learner, {foreignKey: 'idsession', onDelete: 'cascade'})
+db.Learner.belongsTo(db.Session, {foreignKey: 'idLearner'})
+
+// db.sequelize.sync({alter: true})
+
+module.exports = db

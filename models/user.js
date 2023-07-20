@@ -10,7 +10,7 @@ const DB = require("../db.config")
 const User = DB.define("User", {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     nameUser:{
@@ -33,6 +33,6 @@ const User = DB.define("User", {
         type: DataTypes.STRING(64),
         is: /^[0-9a-f]{64}$/i   // Contrainte
     },
-}, { paranoid: true})           // Permet de softDelete
+}, {timestamps: false, paranoid: false, freezeTableName: true})           // Permet de softDelete
 
 module.exports = User

@@ -10,7 +10,7 @@ const DB = require("../db.config")
 const SkillName = DB.define("SkillName", {
     id: {
         type: DataTypes.INTEGER(10),
-        primarykey: true,
+        primaryKey: true,
         autoIncrement: true
     },
     skillName:{
@@ -18,6 +18,6 @@ const SkillName = DB.define("SkillName", {
         defaultValue: '',
         allowNull: false,
     },
-}, { paranoid: true})           // Permet de softDelete
+}, {timestamps: false, paranoid: false, freezeTableName: true})           // Permet de softDelete
 
 module.exports = SkillName
