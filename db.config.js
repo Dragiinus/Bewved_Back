@@ -15,6 +15,7 @@ let sequelize = new Sequelize(
     }
 )
 
+module.exports = sequelize
 /***********************************/
 /*** Mise en place des relations ***/
 /***********************************/
@@ -24,9 +25,9 @@ db.sequelize = sequelize
 db.Learner = require('./models/learner')(sequelize)
 db.Session = require('./models/session')(sequelize)
 
-db.Session.hasMany(db.Learner, {foreignKey: 'learner_id', onDelete: 'cascade'})
-db.Learner.belongsTo(db.Session, {foreignKey: 'session_id'})
+db.Session.hasMany(db.Learner, { onDelete: 'cascade'})
+db.Learner.belongsTo(db.Session)
 
-db.sequelize.sync({alter: true})
+// db.sequelize.sync({alter: true})
 
 module.exports = db

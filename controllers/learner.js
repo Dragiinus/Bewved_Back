@@ -58,13 +58,13 @@ exports.updateLearner = (req, res) => {
         return res.status(400).json({ message: 'Missing parameter'})
     }
 
-    Learner.findOne({ where: {id: learnerId}, raw: true})
+    Learner.findOne({ where: {idLearner: learnerId}, raw: true})
         .then(learner => {
             if(learner === null){
                 return res.status(404).json({ message: 'This user does not exist !'})
             }
 
-            Learner.update(req.body, { where: {id: learnerId}})
+            Learner.update(req.body, { where: {idLearner: learnerId}})
                 .then(learner => res.json({ message: 'Learner updated', data: learner}))
                 .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
         })

@@ -2,14 +2,13 @@
 /*** Import des modules necessaires ***/
 /**************************************/
 const { DataTypes } = require("sequelize")
-const DB = require("../db.config")
 
 /************************************/
 /*** Definition du modele session ***/
 /************************************/
 module.exports = (sequelize) => {
     return Session = sequelize.define("Session", {
-        id: {
+        idsession: {
             type: DataTypes.INTEGER(10),
             primaryKey: true,
             autoIncrement: true
