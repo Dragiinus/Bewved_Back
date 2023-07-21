@@ -8,7 +8,7 @@ const { DataTypes } = require("sequelize")
 /*** Definition du modele Learner ***/
 /************************************/
 module.exports = (sequelize) => {
-    return Learner = sequelize.define("Learner", {
+    return Learner = sequelize.define("learner", {
         idLearner: {
             type: DataTypes.INTEGER(10),
             primaryKey: true,
@@ -30,6 +30,11 @@ module.exports = (sequelize) => {
             allowNull: true,
         },
         ageLearner:{
+            type: DataTypes.INTEGER(10),
+            defaultValue: '',
+            allowNull: true,
+        },
+        idSession:{
             type: DataTypes.INTEGER(10),
             defaultValue: '',
             allowNull: true,
