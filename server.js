@@ -3,7 +3,7 @@
 /**************************************/
 const express = require("express");
 const cors = require("cors");
-const api = "/api/v0/";
+const api = "/api";
 
 /********************************************/
 /*** Import de la connexion à la database ***/
