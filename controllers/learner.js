@@ -32,7 +32,7 @@ exports.getLearner = (req, res) => {
 }
 
 exports.addLearner = (req, res) => {
-    const {firstNameLearner, lastNameLearner, genderLearner, ageLearner, idsession} = req.body
+    const {firstNameLearner, lastNameLearner, genderLearner, ageLearner} = req.body
 
     if(!firstNameLearner || !lastNameLearner || !genderLearner || !ageLearner){
         return res.status(400).json({ message: 'Missing Data'})

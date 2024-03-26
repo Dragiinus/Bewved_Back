@@ -3,7 +3,7 @@
 /**************************************/
 const express = require("express");
 const cors = require('cors')
-const api = "/api/v0/"
+const api = "/api"
 
 /********************************************/
 /*** Import de la connexion à la database ***/
@@ -117,12 +117,12 @@ const session_router = require('./routes/sessions')
 /********************************/
 /***    API GENERAL ROUTES    ***/
 /********************************/
-app.get( '/', (req, res) => res.send(`I'm online, well done !`))
+app.get( api + '/', (req, res) => res.send(`I'm online, well done !`))
 
-app.use('/learners', learner_router)
-app.use('/sessions', session_router)
+app.use( api + '/learners', learner_router)
+app.use( api + '/sessions', session_router)
 
-app.get("*", (req, res) => res.status(501).send(`This ressource doesn't exist`))
+app.get( api + "*", (req, res) => res.status(501).send(`This ressource doesn't exist`))
 
 
 /***************************************/
