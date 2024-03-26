@@ -20,7 +20,7 @@ exports.getSession = (req, res) => {
         return res.json(400).json({ message: 'Missing parameter'})
     }
 
-    Session.findOne({ where: {id: sessionId}, raw: true})
+    Session.findOne({ where: {idsession: sessionId}, raw: true})
         .then(session =>  {
             if((session === null)){
                 return res.status(404).json({ message: 'This session does not exist !'})
@@ -58,13 +58,13 @@ exports.updateSession = (req, res) => {
         return res.status(400).json({ message: 'Missing parameter'})
     }
 
-    Session.findOne({ where: {id: sessionId}, raw: true})
+    Session.findOne({ where: {idsession: sessionId}, raw: true})
         .then(session => {
             if(session === null){
                 return res.status(404).json({ message: 'This session does not exist !'})
             }
 
-            Session.update(req.body, { where: {id: sessionId}})
+            Session.update(req.body, { where: {idsession: sessionId}})
                 .then(session => res.json({ message: 'Session updated'}))
                 .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
         })
@@ -78,7 +78,7 @@ exports.trashSession = (req, res) => {
         return res.status(400).json({ message: 'Missing parameter'})
     }
 
-    Session.destroy({ where: {id: sessionId}})
+    Session.destroy({ where: {idsession: sessionId}})
         .then(() => res.status(204).json({}))
         .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
 }
@@ -90,7 +90,7 @@ exports.deleteSession = (req, res) => {
         return res.status(400).json({ message: 'Missing parameter'})
     }
 
-    Session.destroy({ where: {id: sessionId}, force: true})
+    Session.destroy({ where: {idsession: sessionId}, force: true})
         .then(() => res.status(204).json({}))
         .catch(err => res.status(500).json({ message: 'Database Error', error: err}))
 }

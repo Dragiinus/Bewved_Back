@@ -34,10 +34,5 @@ module.exports = (sequelize) => {
             defaultValue: '',
             allowNull: true,
         },
-        idSession:{
-            type: DataTypes.INTEGER(10),
-            defaultValue: '',
-            allowNull: true,
-        },
     }, {timestamps: false, paranoid: false, freezeTableName: true})           // Permet de softDelete
 }
